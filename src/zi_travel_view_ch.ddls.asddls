@@ -4,6 +4,20 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'View for Travel'
 @Metadata.ignorePropagatedAnnotations: true
+
+
+@ClientHandling:{
+type: #INHERITED,
+algorithm: #AUTOMATED
+}
+
+@ObjectModel: {
+    usageType: {
+        serviceQuality: #A,
+        sizeCategory: #M,
+        dataClass: #MIXED
+}
+}
 define view ZI_TRAVEL_VIEW_CH as select from /dmo/travel as Travel
 association to /dmo/agency as _Agency on $projection.AgencyId = _Agency.agency_id
 {
@@ -22,5 +36,10 @@ association to /dmo/agency as _Agency on $projection.AgencyId = _Agency.agency_i
     lastchangedby as Lastchangedby,
     lastchangedat as Lastchangedat,
     
-    _Agency
+    $session.client as sysClient,
+    $session.system_language as sysLang,
+    $session.system_date as sysData,
+    
+    _Agency // Exposed Association
+    //_Agency.agency_id
 }
