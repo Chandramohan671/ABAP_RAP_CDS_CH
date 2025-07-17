@@ -21,6 +21,7 @@ algorithm: #AUTOMATED
 define view ZI_TRAVEL_VIEW_CH as select from /dmo/travel as Travel
 association to /dmo/agency as _Agency on $projection.AgencyId = _Agency.agency_id
 {
+   // * " Select * (All) supported in CDS View only & obsolete from View Entity
     key travel_id as TravelId,
     agency_id as AgencyId,
     customer_id as CustomerId,
@@ -36,10 +37,27 @@ association to /dmo/agency as _Agency on $projection.AgencyId = _Agency.agency_i
     lastchangedby as Lastchangedby,
     lastchangedat as Lastchangedat,
     
-    $session.client as sysClient,
+    $session.client as sysClient, // Session Variables
     $session.system_language as sysLang,
     $session.system_date as sysData,
     
-    _Agency // Exposed Association
-    //_Agency.agency_id
+    _Agency, // Exposed Association
+    _Agency.agency_id //Adhoc Association
 }
+
+
+/* 
+
+Name List Example Implementation
+
+//define view Zi_Travel_View_Sample_01  ( TravelId, AgencyId, CustomerId )
+//as select from /dmo/travel Travel_01
+//{
+//    key travel_id as Travel_Id,
+//    agency_id as Agency_Id,
+//    customer_id as Customer_Id
+//}
+
+*/
+
+
