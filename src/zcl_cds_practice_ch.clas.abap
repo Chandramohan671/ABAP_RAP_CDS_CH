@@ -22,15 +22,18 @@ CLASS zcl_cds_practice_ch IMPLEMENTATION.
        out->write( 'CDS View with Input Param output below' ).
 
        SELECT FROM
-       zi_travel_sample_prac_02( p_travelid = '00000001', p_date = '20250716' ) " CDS View with Input Parameter value
+       zi_travel_sample_prac_02( p_travelid = '00000002', p_date = '20250716' ) " CDS View with Input Parameter value
        FIELDS TravelId, AgencyId, BookingId,
        BookingDate, Status, character_lit, System_Date
        into TABLE @DATA(lt_data_display).
 
        if sy-subrc = 0.
-         LOOP AT lt_data_display INTO DATA(ls_Data_display).
-            out->write( | { ls_data_display-TravelId }  { ls_data_display-AgencyId }  { ls_data_display-BookingId } { ls_data_display-Status } { ls_data_display-BookingDate } { ls_data_display-character_lit } { ls_data_display-System_Date }| ).
-         ENDLOOP.
+
+       out->write( lt_data_display ). " Print the table in output directly
+
+*         LOOP AT lt_data_display INTO DATA(ls_Data_display).
+*            out->write( | { ls_data_display-TravelId }  { ls_data_display-AgencyId }  { ls_data_display-BookingId } { ls_data_display-Status } { ls_data_display-BookingDate } { ls_data_display-character_lit } { ls_data_display-System_Date }| ).
+*         ENDLOOP.
        ENDIF.
 
        out->write( 'Asscoiation cds with aggregation output below' ).
