@@ -1,0 +1,18 @@
+@EndUserText.label: 'Access Control Test Practice - Travel'
+@MappingRole: true
+define role ZCL_TRAVEL_PRAC {
+    grant
+        select
+            on
+                ZI_TRAVEL_VIEW_CH
+                    where
+                        Status = 'N'; // Access control with Filter Condition
+                        
+    grant
+        select
+           on 
+           ZI_TRAVEL_VIEW_CH 
+           combination mode and
+                        where 
+                        BookingFee > 500;
+}

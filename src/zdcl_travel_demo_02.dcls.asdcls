@@ -1,0 +1,12 @@
+@EndUserText.label: 'DCL Practice DEMO 02'
+@MappingRole: true
+define role ZDCL_TRAVEL_DEMO_02 {
+    grant
+        select
+            on
+                ZI_TRAVEL_VIEW_CH
+                //redefinition      // Redefinition in Access Control
+                    where
+                        Status  = 'X';
+                        
+}

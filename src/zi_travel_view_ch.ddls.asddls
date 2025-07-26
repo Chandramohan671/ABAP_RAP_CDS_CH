@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'Z_TRAVEL_VIEW'
 @AbapCatalog.compiler.compareFilter: true
 @AbapCatalog.preserveKey: true
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'View for Travel'
 @Metadata.ignorePropagatedAnnotations: true
 

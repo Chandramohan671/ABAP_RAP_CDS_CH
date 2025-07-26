@@ -163,6 +163,21 @@ CLASS zcl_cds_practice_ch IMPLEMENTATION.
       out->write( lt_table_func_out2 ).
     ENDIF.
 
+    " CDS DCL Implementation
+
+    out->write( 'CDS DCL Practice' ).
+
+   " SQL View name is not recommend to use as Source view, as it will not load the annotations
+
+  SELECT *
+  FROM ZI_TRAVEL_VIEW_CH   " From 7.50, need to use View / View Entity Name, then only DCL Annoatations will be included
+  with PRIVILEGED ACCESS   " It will disable the Access Control for CDS View
+  INTO TABLE @DATA(lt_dcl_data).
+
+    if sy-subrc = 0.
+      out->write( lt_dcl_data ).
+    ENDIF..
+
 
   ENDMETHOD.
 
