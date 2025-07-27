@@ -1,0 +1,11 @@
+@EndUserText.label: 'DCL for Inherit Conditon from entity'
+@MappingRole: true
+define role ZDCL_CDS_INHERIT_CON {
+    grant
+        select
+            on
+                ZI_CDS_INHERIT_COND
+                    where
+                        inheriting conditions from entity ZI_TRAVEL_VIEW_CH;
+                        
+}

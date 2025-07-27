@@ -18,7 +18,8 @@ algorithm: #AUTOMATED
         dataClass: #MIXED
 }
 }
-define view ZI_TRAVEL_VIEW_CH as select from /dmo/travel as Travel
+define view ZI_TRAVEL_VIEW_CH
+as select from /dmo/travel as Travel
 association to /dmo/agency as _Agency on $projection.AgencyId = _Agency.agency_id
 {
    // * " Select * (All) supported in CDS View only & obsolete from View Entity

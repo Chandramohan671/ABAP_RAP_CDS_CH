@@ -8,10 +8,11 @@ define role ZCL_TRAVEL_PRAC {
                     where
                         Status = 'N'; // Access control with Filter Condition
                         
+                        
     grant
         select
            on 
-           ZI_TRAVEL_VIEW_CH 
+           ZI_TRAVEL_VIEW_CH
            combination mode and
                         where 
                         BookingFee > 500;

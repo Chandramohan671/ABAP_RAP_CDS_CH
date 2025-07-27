@@ -1,0 +1,12 @@
+@EndUserText.label: 'Inherit for grant DCL'
+@MappingRole: true
+define role ZDCL_TRVL_INHERIT_GRANT {
+   grant
+        select
+            on
+                ZI_TRAVEL_DCL_INHERIT_COND
+                    where
+                       inherit ZDCL_TRAVEL_DEMO_02     // Inherit condition for grant on base CDS View
+                       for grant select on ZI_TRAVEL_VIEW_CH
+                       or CurrencyCode = 'USD';
+}

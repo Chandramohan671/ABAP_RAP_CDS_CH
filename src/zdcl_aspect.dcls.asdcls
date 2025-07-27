@@ -1,0 +1,21 @@
+@EndUserText.label: 'DCL for Aspect practice & host expressions'
+@MappingRole: true
+define role ZDCL_ASPECT {
+   grant
+     select
+       on
+      ZI_CDS_ASPECT_DEMO
+      where
+      
+ $session.user = aspect user // Session variable as host variable. It will host on DB before query execution
+ and
+ 
+  $parameters.p_date = '20250702' // Parameter variable
+  and
+  
+  'Mohan' = aspect user;  // Literals
+               
+               //Createdby = aspect user;
+              //( TravelId ) = aspect ZDCL_ACCESS_POLICY;  // Using custom aspect in role conditions.
+                           
+}

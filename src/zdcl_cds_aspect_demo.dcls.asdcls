@@ -1,0 +1,11 @@
+@EndUserText.label: 'DCL for Aspect practice & host expressions'
+@MappingRole: true
+define role ZDCL_CDS_ASPECT_DEMO {
+    grant
+        select
+            on
+                ZI_TRAVEL_VIEW_CH
+                    where
+                      Createdby   = aspect user;
+                           
+}

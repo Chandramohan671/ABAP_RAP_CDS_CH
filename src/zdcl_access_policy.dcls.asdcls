@@ -1,0 +1,9 @@
+define accesspolicy ZDCL_ACCESS_POLICY {
+    @EndUserText.label: 'DCL for Access Policy demo'
+    define aspect ZDCL_ACCESS_POLICY as
+        select from ZI_CDS_ASPECT_DEMO with user element Createdby
+            {
+                TravelId
+            }
+            
+}

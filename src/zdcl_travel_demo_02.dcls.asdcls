@@ -5,8 +5,9 @@ define role ZDCL_TRAVEL_DEMO_02 {
         select
             on
                 ZI_TRAVEL_VIEW_CH
-                //redefinition      // Redefinition in Access Control
+                redefinition      // Redefinition in Access Control
                     where
-                        Status  = 'X';
+                    inheriting conditions from super;   // Inherit conditon from super -> It will make this DCL as obsolete.
+                      //  Status  = 'X';
                         
 }
